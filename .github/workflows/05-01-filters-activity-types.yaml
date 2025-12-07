@@ -1,0 +1,16 @@
+name: 05 - 1 - Filters Activity Types
+on:
+    pull_request:
+        types:
+            - opened
+            - reopened
+            - synchronize
+        branches:
+            - develop    
+
+jobs:
+    echo:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Echo Pull Request Activity
+              run: echo "Running whenever a PR is opened or synchronized and base branch is develop."
