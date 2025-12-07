@@ -1,7 +1,7 @@
 name: 09 - Using Functions
 
 on:
-    pull_request:
+    # pull_request:
     workflow_dispatch:
 
 jobs:
@@ -28,7 +28,7 @@ jobs:
             - name: Failing Step
               run: |
                 echo "This step will fail"
-                exit 0
+                exit 1
             - name: This step will be skipped
               if: ${{ success() }}
               run: echo "This step runs only if the previous steps were successful."
