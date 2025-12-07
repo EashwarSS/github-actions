@@ -12,7 +12,9 @@ jobs:
         steps:
             - name: Failed step
               run: |
-                echo "This step will fail"
-                exit 1
+                echo "This step will succeed"
+                exit 0
+                # echo "This step will fail"
+                # exit 1
             - name: Goodbye
               run: echo "Goodbye, World!"
