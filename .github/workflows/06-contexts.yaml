@@ -12,6 +12,9 @@ on:
 jobs:
     echo-data:
         runs-on: ubuntu-latest
+        env:
+            MY_JOB_ENV: "job"
+            MY_OVERWRITTEN_ENV: "job"
         steps:
             - name: Display information from contexts
               run: |
@@ -27,3 +30,7 @@ jobs:
             - name: Retrieve Variables
               run: |
                 echo "Variable value: ${{ vars.MY_VAR }}"
+            - name: Print Environment Variables
+              run: |
+                echo "Workflow env: ${{ env.MY_WORKFLOW_VAR }}"
+                echo "Overwritten env: ${{ env.MY_OVERWRITTEN_VAR }}"    
