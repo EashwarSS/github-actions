@@ -15,6 +15,9 @@ jobs:
                 cat <<EOF
                 ${{ toJson(github.event.pull_request.labels) }}
                 EOF
+            - name: Test
+              if: ${{ !cancelled() }}
+              run: echo "This step runs only if the workflow is not cancelled."    
             - name: Bug step
               if: ${{ !cancelled() && contains(github.event.pull_request.title, 'fix') }}
               run: echo "This PR seems to be a bug fix."
